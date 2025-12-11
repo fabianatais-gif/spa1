@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spa de Mascotas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Spa de Mascotas</h1>
+    </header>
+    
+    <!-- LOGIN -->
+    <section id="login-section">
+        <div class="login-container">
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Usuario" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="submit" class="botones">Ingresar</button>
+                <p id="login-error" class="error-msg"></p>
+            </form>
+        </div>
+    </section>
+    
+
+
+    <!-- NAVEGACIÓN -->
+    <nav id="nav" class="hidden">
+        <ul>
+            <li><button class="botones" onclick="showModule('registro')">Registro</button></li>
+            <li><button class="botones" onclick="showModule('agenda')">Agenda</button></li>
+            <li><button class="botones" onclick="showModule('carrito')">Carrito</button></li>
+            <li><button class="botones" onclick="logout()">Cerrar Sesión</button></li>
+        </ul>
+    </nav>
+
+    <!-- REGISTRO -->
+    <section id="registro" class="module hidden">
+        <h2>Registro de Dueño</h2>
+        <input type="text" id="owner-name" placeholder="Nombre">
+        <input type="text" id="owner-phone" placeholder="Teléfono">
+        <input type="text" id="owner-email" placeholder="Correo">
+        <button class="botones" onclick="addOwner()">Registrar Dueño</button>
+
+        <h2>Registro de Mascota</h2>
+        <input type="text" id="pet-name" placeholder="Nombre Mascota">
+        <input type="text" id="pet-species" placeholder="Especie">
+        <input type="text" id="pet-breed" placeholder="Raza">
+        <button class="botones" onclick="addPet()">Registrar Mascota</button>
+    </section>
+
+    <!-- AGENDA -->
+    <section id="agenda" class="module hidden">
+        <h2>Agendar Servicio</h2>
+        <input type="date" id="service-date">
+        <input type="time" id="service-time">
+        <input type="text" id="service-pet" placeholder="Nombre Mascota">
+        <input type="text" id="service-type" placeholder="Servicio">
+        <button class="botones" onclick="addService()">Agendar</button>
+
+        <h3>Servicios Agendados</h3>
+        <table id="service-table">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Mascota</th>
+                    <th>Servicio</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas agregadas por JS -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- CARRITO -->
+    <section id="carrito" class="module hidden">
+        <h2>Catálogo</h2>
+        <div class="catalog-container">
+            <div class="catalog-item">
+                <img src="imagenes/imagen1.jpg" alt="Baño">
+                <h3>Baño</h3>
+                <p>30bs</p>
+                <button class="botones" onclick="addToCart('Baño',30)">Comprar</button>
+            </div>
+            <div class="catalog-item">
+                <img src="imagenes/imagesn2.jpg" alt="Corte">
+                <h3>Corte de Pelo</h3>
+                <p>40bs</p>
+                <button class="botones" onclick="addToCart('Corte de Pelo',40)">Comprar</button>
+            </div>
+            <div class="catalog-item">
+                <img src="imagenes/imagen3.jpg" alt="Comida">
+                <h3>Comida</h3>
+                <p>25bs</p>
+                <button class="botones" onclick="addToCart('Comida',25)">Comprar</button>
+            </div>
+            <div class="catalog-item">
+                <img src="imagenes/imagen4.jpg" alt="Juguete">
+                <h3>Juguete</h3>
+                <p>15bs</p>
+                <button class="botones" onclick="addToCart('Juguete',15)">Comprar</button>
+            </div>
+        </div>
+
+        
+
+<h2>Carrito</h2>
+<table id="cart-table">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Productos agregados aquí -->
+    </tbody>
+    <tfoot>
+        <tr>
+            <td><strong>Total</strong></td>
+            <td colspan="2">bs <span id="total">0</span></td>
+        </tr>
+    </tfoot>
+</table>
+
+
+        
+
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
